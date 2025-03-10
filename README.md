@@ -12,8 +12,16 @@ all these newly created modules are linked back and imported in app.module.ts fi
 
 - Controller is more of a route handler. The core business logic is written in service provider which we just call inside the controller.
 - The main idea of Provider is that it can injected as a dependency.
+- Pipes - pipes are a special type of middleware. have 2 usecase. Validation and transformation (transform input data to desired form). WE HAVE 9 built-in pipes in Nest.js
+example: ParseIntPipe - it converts the string param to number. If the string is not a number, it will just return error. Usecase: example id of user sent in param, it is string.
 
 `npm run start:dev` have a --watch flag, which acts like nodemon and restart server on new changes. THat is why we have this flag only in dev script.
+
+`npm i @nestjs/mapped-types -D` to use PartialType method in creating DTOs, we need to install mapped types
+
+
+## DTO (DATA TRANSFER OBJECTS):
+DTO is an object that determines how data is transfered over network. Kind of a schema for the data
 
 🔹 Understanding Decorators in Nest.js
 In Nest.js, decorators are special functions prefixed with @ that add metadata to classes, methods, and properties.

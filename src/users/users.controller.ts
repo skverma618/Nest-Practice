@@ -3,11 +3,14 @@ import {
   Controller,
   Get,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('users')
 export class UsersController {
@@ -16,7 +19,7 @@ export class UsersController {
   // POST /users - create user
   // PATCH /users/:id - edit user
 
-  constructor(private readonly userService: UsersService) {}
+  constructor(private readonly userService: UsersService) { }
 
   @Get() // also handle query parameter => /users?role='value'&---   they are different then param which are not optional
   findAll(@Query('role') role?: 'INTERN' | 'SDE' | 'MANAGER') {
@@ -24,17 +27,18 @@ export class UsersController {
   }
 
   @Get(':id') // id is a param and not a query parameter
-  findOne(@Param(':id') id: string) {
+  // findOne(@Param(':id') id: string) {  // id param is string but pipe (middleware) will parse it as an int
+  findOne(@Param(':id', ParseIntPipe) id: number) {
     return '1';
   }
 
   @Post()
-  create(@Body() user: {}) {
+  create(@Body() user: { name: string, email: string, role: 'INTERN' | 'SDE' | 'MANAGER' }) {
     return user;
   }
 
   @Patch(':id')
-  editOne(@Param(':id') id: string, @Body() userUpdate: {}) {
+  editOne(@Param(':id', ParseIntPipe) id: number, @Body() userUpdate: {}) {
     return { id, ...userUpdate };
   }
 }
