@@ -2,7 +2,7 @@
 
 Express.js is minimalist and unopinionated. It does not enforce MVC pattern, unlike NestJS which enforces both MVC and TypeScript usage.
 
-## Getting Started
+### Getting Started
 
 Install NestJS CLI globally and create a new project:
 
@@ -24,7 +24,7 @@ example: ParseIntPipe - it converts the string param to number. If the string is
 `npm i @nestjs/mapped-types -D` to use PartialType method in creating DTOs, we need to install mapped types
 
 
-## DTO (DATA TRANSFER OBJECTS):
+### DTO (DATA TRANSFER OBJECTS):
 DTO is an object that determines how data is transfered over network. Kind of a schema for the data
 
 🔹 Understanding Decorators in Nest.js
@@ -32,6 +32,7 @@ In Nest.js, decorators are special functions prefixed with @ that add metadata t
 
 They are used to define routes, dependencies, validation, and more in Nest.js.
 
+### Decorators
 ✅ 1. How Do Decorators Work?
 Decorators wrap around a class, method, or property to modify its behavior.
 
