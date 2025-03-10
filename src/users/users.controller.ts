@@ -33,12 +33,15 @@ export class UsersController {
   }
 
   @Post()
-  create(@Body() user: { name: string, email: string, role: 'INTERN' | 'SDE' | 'MANAGER' }) {
+  // create(@Body() user: { name: string, email: string, role: 'INTERN' | 'SDE' | 'MANAGER' }) { // without DTOs
+  create(@Body() user: CreateUserDto) {
+
     return user;
   }
 
   @Patch(':id')
-  editOne(@Param(':id', ParseIntPipe) id: number, @Body() userUpdate: {}) {
+  // editOne(@Param(':id', ParseIntPipe) id: number, @Body() userUpdate: {name?: string, email?: string, role?: 'INTERN' | 'SDE' | 'MANAGER'}) {
+  editOne(@Param(':id', ParseIntPipe) id: number, @Body() userUpdate: UpdateUserDto) {
     return { id, ...userUpdate };
   }
 }
