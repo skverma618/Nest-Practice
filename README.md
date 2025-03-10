@@ -10,8 +10,11 @@ Install NestJS CLI globally and create a new project:
 nest new project-name`
 
 `nest g module users // to create a new directoy with a user module in the src directory`
+
 all these newly created modules are linked back and imported in app.module.ts file of src directory.
+
 `nest g controller users // to create controller and test file`
+
 `nest g service users`
 
 - Controller is more of a route handler. The core business logic is written in service provider which we just call inside the controller.
@@ -19,9 +22,11 @@ all these newly created modules are linked back and imported in app.module.ts fi
 - Pipes - pipes are a special type of middleware. have 2 usecase. Validation and transformation (transform input data to desired form). WE HAVE 9 built-in pipes in Nest.js
 example: ParseIntPipe - it converts the string param to number. If the string is not a number, it will just return error. Usecase: example id of user sent in param, it is string.
 
-`npm run start:dev` have a --watch flag, which acts like nodemon and restart server on new changes. THat is why we have this flag only in dev script.
+`npm run start:dev` 
+have a --watch flag, which acts like nodemon and restart server on new changes. THat is why we have this flag only in dev script.
 
-`npm i @nestjs/mapped-types -D` to use PartialType method in creating DTOs, we need to install mapped types
+`npm i @nestjs/mapped-types -D` 
+to use PartialType method in creating DTOs, we need to install mapped types
 
 
 ### DTO (DATA TRANSFER OBJECTS):
