@@ -32,7 +32,7 @@ In Nest.js, decorators are special functions prefixed with @ that add metadata t
 
 They are used to define routes, dependencies, validation, and more in Nest.js.
 
-### Decorators
+## Decorators
 ✅ 1. How Do Decorators Work?
 Decorators wrap around a class, method, or property to modify its behavior.
 
