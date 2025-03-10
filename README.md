@@ -1,6 +1,10 @@
-Express js is very minimilist and unopinionated. IT does not force MVC pattern, but Nest does. ALso, it forces, Typescript.
+# NestJS Overview
 
-## commands to get started:
+Express.js is minimalist and unopinionated. It does not enforce MVC pattern, unlike NestJS which enforces both MVC and TypeScript usage.
+
+## Getting Started
+
+Install NestJS CLI globally and create a new project:
 
 `npm i -g @nestjs/cli
 nest new project-name`
@@ -32,10 +36,7 @@ They are used to define routes, dependencies, validation, and more in Nest.js.
 Decorators wrap around a class, method, or property to modify its behavior.
 
 Example of a simple method decorator:
-
-ts
-Copy
-Edit
+`
 function MyDecorator() {
 return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
 console.log(`Decorating method: ${propertyKey}`);
@@ -54,27 +55,29 @@ obj.myMethod();
 // Output:
 // Decorating method: myMethod
 // Executing method...
+`
 Here, @MyDecorator() modifies myMethod() by logging extra info.
 
 ✅ 2. Types of Decorators in Nest.js
 📌 1. Class Decorators (Used for Controllers, Services, etc.)
 Apply metadata to a class.
+
 Example: @Controller(), @Injectable()
-ts
-Copy
-Edit
+
+`
 import { Controller } from '@nestjs/common';
 
 @Controller('users') // This sets the base route to "/users"
 export class UserController {
 // Your methods here...
 }
+`
+
 📌 2. Method Decorators (Used for defining API routes)
 Apply metadata to methods.
 Example: @Get(), @Post(), @Put(), @Delete()
-ts
-Copy
-Edit
+
+`
 import { Controller, Get } from '@nestjs/common';
 
 @Controller('products')
@@ -84,11 +87,11 @@ getAllProducts() {
 return ['Product 1', 'Product 2'];
 }
 }
+`
 📌 3. Parameter Decorators (Used for extracting request data)
 Example: @Param(), @Body(), @Query()
-ts
-Copy
-Edit
+
+`
 import { Controller, Get, Param } from '@nestjs/common';
 
 @Controller('users')
@@ -98,11 +101,11 @@ getUser(@Param('id') id: string) {
 return `User ID: ${id}`;
 }
 }
+`
 📌 4. Property Decorators (Used in Dependency Injection)
 Example: @Inject()
-ts
-Copy
-Edit
+
+`
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -111,6 +114,7 @@ getData() {
 return "Hello from MyService!";
 }
 }
+`
 ✅ 3. Why Are Decorators Important in Nest.js?
 ✅ Simplifies Code: Makes Nest.js highly readable.
 ✅ Encapsulation: Adds metadata to classes & methods without modifying core logic.
