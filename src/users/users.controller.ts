@@ -7,6 +7,7 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
@@ -15,9 +16,11 @@ export class UsersController {
   // POST /users - create user
   // PATCH /users/:id - edit user
 
+  constructor(private readonly userService: UsersService) {}
+
   @Get() // also handle query parameter => /users?role='value'&---   they are different then param which are not optional
-  findAll(@Query('role') role?: 'Intern' | 'SDE' | 'Manager') {
-    return [role];
+  findAll(@Query('role') role?: 'INTERN' | 'SDE' | 'MANAGER') {
+    return this.userService.findAll(role);
   }
 
   @Get(':id') // id is a param and not a query parameter

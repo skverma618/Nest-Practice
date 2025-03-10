@@ -11,6 +11,7 @@ all these newly created modules are linked back and imported in app.module.ts fi
 `nest g service users`
 
 - Controller is more of a route handler. The core business logic is written in service provider which we just call inside the controller.
+- The main idea of Provider is that it can injected as a dependency.
 
 `npm run start:dev` have a --watch flag, which acts like nodemon and restart server on new changes. THat is why we have this flag only in dev script.
 
