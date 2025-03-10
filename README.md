@@ -1,3 +1,19 @@
+Express js is very minimilist and unopinionated. IT does not force MVC pattern, but Nest does. ALso, it forces, Typescript.
+
+## commands to get started:
+
+`npm i -g @nestjs/cli
+nest new project-name`
+
+`nest g module users // to create a new directoy with a user module in the src directory`
+all these newly created modules are linked back and imported in app.module.ts file of src directory.
+`nest g controller users // to create controller and test file`
+`nest g service users`
+
+- Controller is more of a route handler. The core business logic is written in service provider which we just call inside the controller.
+
+`npm run start:dev` have a --watch flag, which acts like nodemon and restart server on new changes. THat is why we have this flag only in dev script.
+
 🔹 Understanding Decorators in Nest.js
 In Nest.js, decorators are special functions prefixed with @ that add metadata to classes, methods, and properties.
 
