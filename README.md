@@ -1,98 +1,92 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+🔹 Understanding Decorators in Nest.js
+In Nest.js, decorators are special functions prefixed with @ that add metadata to classes, methods, and properties.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+They are used to define routes, dependencies, validation, and more in Nest.js.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+✅ 1. How Do Decorators Work?
+Decorators wrap around a class, method, or property to modify its behavior.
 
-## Description
+Example of a simple method decorator:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+ts
+Copy
+Edit
+function MyDecorator() {
+return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+console.log(`Decorating method: ${propertyKey}`);
+};
+}
 
-## Project setup
+class Example {
+@MyDecorator()
+myMethod() {
+console.log("Executing method...");
+}
+}
 
-```bash
-$ npm install
-```
+const obj = new Example();
+obj.myMethod();
+// Output:
+// Decorating method: myMethod
+// Executing method...
+Here, @MyDecorator() modifies myMethod() by logging extra info.
 
-## Compile and run the project
+✅ 2. Types of Decorators in Nest.js
+📌 1. Class Decorators (Used for Controllers, Services, etc.)
+Apply metadata to a class.
+Example: @Controller(), @Injectable()
+ts
+Copy
+Edit
+import { Controller } from '@nestjs/common';
 
-```bash
-# development
-$ npm run start
+@Controller('users') // This sets the base route to "/users"
+export class UserController {
+// Your methods here...
+}
+📌 2. Method Decorators (Used for defining API routes)
+Apply metadata to methods.
+Example: @Get(), @Post(), @Put(), @Delete()
+ts
+Copy
+Edit
+import { Controller, Get } from '@nestjs/common';
 
-# watch mode
-$ npm run start:dev
+@Controller('products')
+export class ProductController {
+@Get() // Handles GET requests at "/products"
+getAllProducts() {
+return ['Product 1', 'Product 2'];
+}
+}
+📌 3. Parameter Decorators (Used for extracting request data)
+Example: @Param(), @Body(), @Query()
+ts
+Copy
+Edit
+import { Controller, Get, Param } from '@nestjs/common';
 
-# production mode
-$ npm run start:prod
-```
+@Controller('users')
+export class UserController {
+@Get(':id') // Handles GET requests like "/users/1"
+getUser(@Param('id') id: string) {
+return `User ID: ${id}`;
+}
+}
+📌 4. Property Decorators (Used in Dependency Injection)
+Example: @Inject()
+ts
+Copy
+Edit
+import { Injectable } from '@nestjs/common';
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+@Injectable()
+export class MyService {
+getData() {
+return "Hello from MyService!";
+}
+}
+✅ 3. Why Are Decorators Important in Nest.js?
+✅ Simplifies Code: Makes Nest.js highly readable.
+✅ Encapsulation: Adds metadata to classes & methods without modifying core logic.
+✅ Powerful & Flexible: Used for routing, dependency injection, middleware, and more.
