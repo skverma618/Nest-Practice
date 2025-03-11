@@ -62,7 +62,7 @@ Decorators wrap around a class, method, or property to modify its behavior.
 
 Example of a simple method decorator:
 
-`
+```
 function MyDecorator() {
 return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
 console.log(`Decorating method: ${propertyKey}`);
@@ -81,7 +81,7 @@ obj.myMethod();
 // Output:
 // Decorating method: myMethod
 // Executing method...
-`
+```
 
 Here, @MyDecorator() modifies myMethod() by logging extra info.
 
@@ -91,14 +91,14 @@ Apply metadata to a class.
 
 Example: @Controller(), @Injectable()
 
-`
+```
 import { Controller } from '@nestjs/common';
 
 @Controller('users') // This sets the base route to "/users"
 export class UserController {
 // Your methods here...
 }
-`
+```
 
 📌 2. Method Decorators (Used for defining API routes)
 Apply metadata to methods.
@@ -119,7 +119,7 @@ return ['Product 1', 'Product 2'];
 📌 3. Parameter Decorators (Used for extracting request data)
 Example: @Param(), @Body(), @Query()
 
-`
+```
 import { Controller, Get, Param } from '@nestjs/common';
 
 @Controller('users')
@@ -129,12 +129,12 @@ getUser(@Param('id') id: string) {
 return `User ID: ${id}`;
 }
 }
-`
+```
 
 📌 4. Property Decorators (Used in Dependency Injection)
 Example: @Inject()
 
-`
+```
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -143,7 +143,7 @@ getData() {
 return "Hello from MyService!";
 }
 }
-`
+```
 
 ✅ 3. Why Are Decorators Important in Nest.js?
 ✅ Simplifies Code: Makes Nest.js highly readable.
@@ -165,9 +165,10 @@ To add the rate limiter module, we ofcourse need to import throttlermodule and u
 
 ## Prisma Commands
 
-`npm install @prisma/client
+```
+npm install @prisma/client
 npm install --save-dev prisma
 npx prisma init
-`
+```
 
 Serverless Postgres Server - Neon.tech
