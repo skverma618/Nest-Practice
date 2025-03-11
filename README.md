@@ -6,18 +6,19 @@ Express.js is minimalist and unopinionated. It does not enforce MVC pattern, unl
 
 Install NestJS CLI globally and create a new project:
 
-`npm i -g @nestjs/cli
-nest new project-name`
-
-`nest g module users // to create a new directoy with a user module in the src directory`
+```
+npm i -g @nestjs/cli
+nest new project-name
+nest g module users // to create a new directoy with a user module in the src directory
+```
 
 all these newly created modules are linked back and imported in app.module.ts file of src directory.
 
-`nest g controller users // to create controller and test file`
-
-`nest g service users`
-
-`nest g resource users`
+``` 
+nest g controller users // to create controller and test file
+nest g service users
+nest g resource users
+```
 
 - Controller is more of a route handler. The core business logic is written in service provider which we just call inside the controller.
 - The main idea of Provider is that it can injected as a dependency.
