@@ -104,7 +104,7 @@ export class UserController {
 Apply metadata to methods.
 Example: @Get(), @Post(), @Put(), @Delete()
 
-`
+```
 import { Controller, Get } from '@nestjs/common';
 
 @Controller('products')
@@ -114,7 +114,7 @@ getAllProducts() {
 return ['Product 1', 'Product 2'];
 }
 }
-`
+```
 
 📌 3. Parameter Decorators (Used for extracting request data)
 Example: @Param(), @Body(), @Query()
