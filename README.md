@@ -154,6 +154,10 @@ return "Hello from MyService!";
 
 `npm i --save @nestjs/throttler`
 
+To add the rate limiter module, we ofcourse need to import throttlermodule and use throttler app guard service.
+
+- There is a skip throttle decorator we can use for a controller.
+
 ## Prisma Commands
 
 `npm install @prisma/client
