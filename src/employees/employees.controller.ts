@@ -12,7 +12,7 @@ import { EmployeesService } from './employees.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { Prisma } from '@prisma/client';
-import { SkipThrottle } from '@nestjs/throttler';
+import { SkipThrottle, Throttle } from '@nestjs/throttler';
 
 @SkipThrottle()
 @Controller('employees')
@@ -30,6 +30,7 @@ export class EmployeesController {
     return this.employeesService.findAll();
   }
 
+  @Throttle({ short: { ttl: 1000, limit: 1 } })
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.employeesService.findOne(+id);
