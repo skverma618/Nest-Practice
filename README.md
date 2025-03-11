@@ -36,7 +36,7 @@ List of all kind of validators:
 
 https://github.com/typestack/class-validator#validation-decorators
 
-###NOTE : We will need a validation pipe (middleware) after adding validations to out DTOs to actually check the validation on run time.
+### NOTE : We will need a validation pipe (middleware) after adding validations to out DTOs to actually check the validation on run time.
 
 ## ERROR HANDLING
 
@@ -50,6 +50,8 @@ DTO is an object that determines how data is transfered over network. Kind of a 
 In Nest.js, decorators are special functions prefixed with @ that add metadata to classes, methods, and properties.
 
 They are used to define routes, dependencies, validation, and more in Nest.js.
+
+#### NOTE : To use a service in another module, use exports property in the module. Controller is never exported as it is attached to a specific module.
 
 ## Decorators
 
@@ -141,7 +143,7 @@ return "Hello from MyService!";
 ✅ Encapsulation: Adds metadata to classes & methods without modifying core logic.
 ✅ Powerful & Flexible: Used for routing, dependency injection, middleware, and more.
 
-##Prisma Commands
+## Prisma Commands
 
 `npm install @prisma/client
 npm install --save-dev prisma
