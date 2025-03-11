@@ -141,4 +141,11 @@ return "Hello from MyService!";
 ✅ Encapsulation: Adds metadata to classes & methods without modifying core logic.
 ✅ Powerful & Flexible: Used for routing, dependency injection, middleware, and more.
 
+##Prisma Commands
+
+`npm install @prisma/client
+npm install --save-dev prisma
+npx prisma init
+`
+
 Serverless Postgres Server - Neon.tech
