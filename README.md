@@ -17,6 +17,8 @@ all these newly created modules are linked back and imported in app.module.ts fi
 
 `nest g service users`
 
+`nest g resource users`
+
 - Controller is more of a route handler. The core business logic is written in service provider which we just call inside the controller.
 - The main idea of Provider is that it can injected as a dependency.
 - Pipes - pipes are a special type of middleware. have 2 usecase. Validation and transformation (transform input data to desired form). WE HAVE 9 built-in pipes in Nest.js
@@ -36,7 +38,7 @@ List of all kind of validators:
 
 https://github.com/typestack/class-validator#validation-decorators
 
-### NOTE : We will need a validation pipe (middleware) after adding validations to out DTOs to actually check the validation on run time.
+#### NOTE : We will need a validation pipe (middleware) after adding validations to out DTOs to actually check the validation on run time.
 
 ## ERROR HANDLING
 
