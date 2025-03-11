@@ -61,6 +61,7 @@ They are used to define routes, dependencies, validation, and more in Nest.js.
 Decorators wrap around a class, method, or property to modify its behavior.
 
 Example of a simple method decorator:
+
 `
 function MyDecorator() {
 return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
@@ -81,6 +82,7 @@ obj.myMethod();
 // Decorating method: myMethod
 // Executing method...
 `
+
 Here, @MyDecorator() modifies myMethod() by logging extra info.
 
 ✅ 2. Types of Decorators in Nest.js
@@ -113,6 +115,7 @@ return ['Product 1', 'Product 2'];
 }
 }
 `
+
 📌 3. Parameter Decorators (Used for extracting request data)
 Example: @Param(), @Body(), @Query()
 
@@ -127,6 +130,7 @@ return `User ID: ${id}`;
 }
 }
 `
+
 📌 4. Property Decorators (Used in Dependency Injection)
 Example: @Inject()
 
@@ -140,6 +144,7 @@ return "Hello from MyService!";
 }
 }
 `
+
 ✅ 3. Why Are Decorators Important in Nest.js?
 ✅ Simplifies Code: Makes Nest.js highly readable.
 ✅ Encapsulation: Adds metadata to classes & methods without modifying core logic.
