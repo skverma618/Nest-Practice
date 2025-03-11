@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
   Query,
+  ValidationPipe,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -42,7 +43,7 @@ export class UsersController {
   //   },
   // ) {
   // without DTOs
-  create(@Body() user: CreateUserDto) {
+  create(@Body(ValidationPipe) user: CreateUserDto) {
     return this.userService.create(user);
   }
 

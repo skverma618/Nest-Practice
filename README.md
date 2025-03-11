@@ -36,6 +36,12 @@ List of all kind of validators:
 
 https://github.com/typestack/class-validator#validation-decorators
 
+###NOTE : We will need a validation pipe (middleware) after adding validations to out DTOs to actually check the validation on run time.
+
+## ERROR HANDLING
+
+Nestjs builtin exception - https://docs.nestjs.com/exception-filters#built-in-http-exceptions
+
 ### DTO (DATA TRANSFER OBJECTS):
 
 DTO is an object that determines how data is transfered over network. Kind of a schema for the data
