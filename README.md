@@ -145,6 +145,15 @@ return "Hello from MyService!";
 ✅ Encapsulation: Adds metadata to classes & methods without modifying core logic.
 ✅ Powerful & Flexible: Used for routing, dependency injection, middleware, and more.
 
+## Others practices
+
+`app.setGlobalPrefix('api');` - Add global prefix to all api routes
+`ap.enableCors()`
+
+## Rate Limiting
+
+`npm i --save @nestjs/throttler`
+
 ## Prisma Commands
 
 `npm install @prisma/client
