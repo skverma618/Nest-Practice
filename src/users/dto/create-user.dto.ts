@@ -1,5 +1,10 @@
+import { IsEmail } from 'class-validator';
+
 export class CreateUserDto {
-    name: string;
-    email: string;
-    role: "INTERN" | "SDE" | "MANAGER";
+  name: string;
+
+  @IsEmail()
+  email: string;
+
+  role: 'INTERN' | 'SDE' | 'MANAGER';
 }
